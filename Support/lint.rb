@@ -16,13 +16,15 @@ offenses.each do |offence|
   (messages[offence.line] ||= []) << offence.message.gsub('`', "").gsub(',',' ')
 end
 
-args = ['--clear-mark=error']
+args = ['--clear-mark=note']
 
 messages.each do |line, messages|
-  args << "--set-mark=error:\"#{messages.join(' ')}\""
+  args << "--set-mark=note:\"#{messages.join(' ')}\""
   args << "--line=#{line}"
 end
 
 args << ENV['TM_FILEPATH'].inspect
 
-`#{ENV['TM_MATE']} #{args.join(' ')}"`
+cmd = "#{ENV['TM_MATE']} #{args.join(' ')}"
+
+exec cmd

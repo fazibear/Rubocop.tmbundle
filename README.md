@@ -3,7 +3,7 @@ Rubocop.tmbundle
 
 Rubocop (http://batsov.com/rubocop/) Textmate 2 Bundle
 
-(c) Michał Kalbarczyk fazibear@gmail.com
+(c) 2014 Michał Kalbarczyk fazibear@gmail.com
 
 Install
 -------

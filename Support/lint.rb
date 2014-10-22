@@ -24,10 +24,11 @@ def messages(offences)
     convention: {},
     warning: {},
     error: {},
-    fatal: {},
+    fatal: {}
   }
   offences.each do |offence|
-    (messages[offence.severity.name][offence.line] ||= []) << offence.message.gsub('`', "'").gsub(',', ' ')
+    message = messages[offence.severity.name][offence.line] ||= []
+    message << offence.message.gsub('`', "'").gsub(',', ' ')
   end
   messages
 end
@@ -38,7 +39,7 @@ def command(messages)
     convention: "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect,
     warning:    "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect,
     error:      "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect,
-    fatal:      "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect,
+    fatal:      "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect
   }
   args = []
 

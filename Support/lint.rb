@@ -10,13 +10,19 @@ team = RuboCop::Cop::Team.new(
 )
 offenses = team.inspect_file(processed_source)
 
-args = ['--clear-mark=error']
+messages = {}
 
 offenses.each do |offence|
-  args << "--set-mark=error:\"#{offence.message}\""
-  args << "--line=#{offence.line}"
+  (messages[offence.line] ||= []) << offence.message.gsub('`', "").gsub(',',' ')
+end
+
+args = ['--clear-mark=error']
+
+messages.each do |line, messages|
+  args << "--set-mark=error:\"#{messages.join(' ')}\""
+  args << "--line=#{line}"
 end
 
 args << ENV['TM_FILEPATH'].inspect
 
-`#{ENV['TM_MATE']} #{args.join(' ')}`
+`#{ENV['TM_MATE']} #{args.join(' ')}"`

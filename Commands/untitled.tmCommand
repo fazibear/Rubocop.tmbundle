@@ -20,6 +20,8 @@
 	<string>text</string>
 	<key>outputLocation</key>
 	<string>discard</string>
+	<key>semanticClass</key>
+	<string>callback.document.did-save</string>
 	<key>uuid</key>
 	<string>DE69EC1A-69A4-4B9D-9A3C-7772250EA624</string>
 	<key>version</key>

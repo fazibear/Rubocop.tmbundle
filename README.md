@@ -13,7 +13,7 @@ Supports
 Install
 -------
 
-set $TM_RUBY to your ruby directory
+Make sure $TM_RUBY is set to current ruby directory, then:
 
     gem install rubocop
     mkdir -p ~/Library/Application\ Support/Avian/Bundles

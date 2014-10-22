@@ -19,20 +19,35 @@ def offences(file)
 end
 
 def messages(offences)
-  messages = {}
+  messages = {
+    refactor: {},
+    convention: {},
+    warning: {},
+    error: {},
+    fatal: {},
+  }
   offences.each do |offence|
-    (messages[offence.line] ||= []) << offence.message.gsub('`', "'").gsub(',', ' ')
+    (messages[offence.severity.name][offence.line] ||= []) << offence.message.gsub('`', "'").gsub(',', ' ')
   end
   messages
 end
 
 def command(messages)
-  warrning_icon = "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect
-  args = ["--clear-mark=#{warrning_icon}"]
+  icons = {
+    refactor:   "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect,
+    convention: "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect,
+    warning:    "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect,
+    error:      "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect,
+    fatal:      "#{ENV['TM_BUNDLE_SUPPORT']}/warrning.pdf".inspect,
+  }
+  args = []
 
-  messages.each do |line, message|
-    args << "--set-mark=#{warrning_icon}:#{message.join(' ').inspect}"
-    args << "--line=#{line}"
+  messages.each do |severity, messages|
+    args << ["--clear-mark=#{icons[severity]}"]
+    messages.each do |line, message|
+      args << "--set-mark=#{icons[severity]}:#{message.join(' ').inspect}"
+      args << "--line=#{line}"
+    end
   end
 
   args << ENV['TM_FILEPATH'].inspect

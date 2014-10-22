@@ -7,4 +7,4 @@ Install
 -------
     mkdir -p ~/Library/Application\ Support/Avian/Bundles
     cd ~/Library/Application\ Support/Avian/Bundles
-    git clone git://github.com/fazibear/rubocop.tmbundle.git "Rubocop.tmbundle"
+    git clone git://github.com/fazibear/rubocop.tmbundle.git

@@ -20,6 +20,8 @@
 	<string>text</string>
 	<key>outputLocation</key>
 	<string>discard</string>
+	<key>scope</key>
+	<string>source.ruby</string>
 	<key>semanticClass</key>
 	<string>callback.document.did-save</string>
 	<key>uuid</key>

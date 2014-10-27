@@ -19,3 +19,8 @@ Make sure $TM_RUBY is set to current ruby directory, then:
     mkdir -p ~/Library/Application\ Support/Avian/Bundles
     cd ~/Library/Application\ Support/Avian/Bundles
     git clone git://github.com/fazibear/Rubocop.tmbundle.git
+
+Screenshot
+----------
+![screenshot](Support/screenshot.png?raw=true "screenshot")
+

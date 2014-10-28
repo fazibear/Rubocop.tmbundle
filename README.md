@@ -18,7 +18,7 @@ Make sure $TM_RUBY is set to current ruby directory, then:
     gem install rubocop
     mkdir -p ~/Library/Application\ Support/Avian/Bundles
     cd ~/Library/Application\ Support/Avian/Bundles
-    git clone git://github.com/fazibear/Rubocop.tmbundle.git
+    git clone https://github.com/fazibear/Rubocop.tmbundle.git
 
 Screenshot
 ----------

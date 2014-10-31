@@ -51,7 +51,7 @@ def command(messages)
   messages.each do |severity, messages|
     args << ["--clear-mark=#{icons[severity]}"]
     messages.each do |line, message|
-      args << "--set-mark=#{icons[severity]}:#{message.join(' ').inspect}"
+      args << "--set-mark=#{icons[severity]}:#{message.uniq.join(' ').inspect}"
       args << "--line=#{line}"
     end
   end

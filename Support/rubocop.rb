@@ -1,6 +1,11 @@
 #!/usr/bin/env ruby
 
-require 'rubocop'
+begin
+  require 'rubocop'
+rescue LoadError
+  puts "Install rubocop!\ngem install rubocop"
+  exit 1
+end
 
 def log(msg)
   require 'logger'

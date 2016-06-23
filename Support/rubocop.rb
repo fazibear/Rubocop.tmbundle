@@ -14,7 +14,7 @@ def log(msg)
 end
 
 def offences(file)
-  processed_source = RuboCop::ProcessedSource.from_file(file)
+  processed_source = RuboCop::ProcessedSource.from_file(file, ENV['TM_RUBOCOP_RUBY_VERSION'].to_f)
   team = RuboCop::Cop::Team.new(
     RuboCop::Cop::Cop.all,
     RuboCop::ConfigStore.new.for(processed_source.path),
@@ -58,7 +58,7 @@ def command(messages)
 
   args << ENV['TM_FILEPATH'].inspect
 
-  "#{ENV['TM_MATE']} #{args.join(' ')}"
+  "#{ENV['TM_MATE'].gsub(' ', '\ ')} #{args.join(' ')}"
 end
 
 cmd = command(messages(offences(ENV['TM_FILEPATH'])))

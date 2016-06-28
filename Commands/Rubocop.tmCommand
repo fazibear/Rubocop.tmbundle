@@ -13,7 +13,7 @@ if [ -z "$TM_RUBY" ]; then
 fi  
 
 cd "$TM_PROJECT_DIRECTORY"
-export TM_RUBOCOP_RUBY_VERSION=2.2
+[ -z "$TM_RUBOCOP_RUBY_VERSION" ] && export TM_RUBOCOP_RUBY_VERSION=2.2
 "$TM_RUBY" "$TM_BUNDLE_SUPPORT/rubocop.rb"
 </string>
 	<key>input</key>

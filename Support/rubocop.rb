@@ -40,11 +40,11 @@ end
 
 def command(messages)
   icons = {
-    refactor:   "#{ENV['TM_BUNDLE_SUPPORT']}/evil.pdf".inspect,
-    convention: "#{ENV['TM_BUNDLE_SUPPORT']}/confused.pdf".inspect,
-    warning:    "#{ENV['TM_BUNDLE_SUPPORT']}/neutral.pdf".inspect,
-    error:      "#{ENV['TM_BUNDLE_SUPPORT']}/sad.pdf".inspect,
-    fatal:      "#{ENV['TM_BUNDLE_SUPPORT']}/shocked.pdf".inspect
+    refactor:   "#{ENV['TM_BUNDLE_SUPPORT']}/evil.png".inspect,
+    convention: "#{ENV['TM_BUNDLE_SUPPORT']}/confused.png".inspect,
+    warning:    "#{ENV['TM_BUNDLE_SUPPORT']}/neutral.png".inspect,
+    error:      "#{ENV['TM_BUNDLE_SUPPORT']}/sad.png".inspect,
+    fatal:      "#{ENV['TM_BUNDLE_SUPPORT']}/shocked.png".inspect
   }
   args = []
 

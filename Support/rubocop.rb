@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'shellwords'
 begin
   require 'rubocop'
 rescue LoadError
@@ -40,11 +41,11 @@ end
 
 def command(messages)
   icons = {
-    refactor:   "#{ENV['TM_BUNDLE_SUPPORT']}/evil.pdf".inspect,
-    convention: "#{ENV['TM_BUNDLE_SUPPORT']}/confused.pdf".inspect,
-    warning:    "#{ENV['TM_BUNDLE_SUPPORT']}/neutral.pdf".inspect,
-    error:      "#{ENV['TM_BUNDLE_SUPPORT']}/sad.pdf".inspect,
-    fatal:      "#{ENV['TM_BUNDLE_SUPPORT']}/shocked.pdf".inspect
+    refactor:   "#{ENV['TM_BUNDLE_SUPPORT']}/evil Template.pdf".shellescape,
+    convention: "#{ENV['TM_BUNDLE_SUPPORT']}/confused Template.pdf".shellescape,
+    warning:    "#{ENV['TM_BUNDLE_SUPPORT']}/neutral Template.pdf".shellescape,
+    error:      "#{ENV['TM_BUNDLE_SUPPORT']}/sad Template.pdf".shellescape,
+    fatal:      "#{ENV['TM_BUNDLE_SUPPORT']}/shocked Template.pdf".shellescape
   }
   args = []
 

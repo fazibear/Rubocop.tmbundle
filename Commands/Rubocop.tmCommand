@@ -6,12 +6,14 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env sh
-
 if [ -z "$TM_RUBY" ]; then
-    echo "Need to set TM_RUBY"
-    exit 1
-fi  
-
+  echo "Need to set TM_RUBY"
+  exit 1
+fi
+cd "$TM_PROJECT_DIRECTORY"
+if [ -z "$TM_RUBOCOP_RUBY_VERSION" ]; then
+  export TM_RUBOCOP_RUBY_VERSION=2.2
+fi
 "$TM_RUBY" "$TM_BUNDLE_SUPPORT/rubocop.rb"
 </string>
 	<key>input</key>

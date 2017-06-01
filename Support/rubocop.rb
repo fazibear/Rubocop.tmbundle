@@ -14,9 +14,9 @@ def log(msg)
 end
 
 def offences(file)
-  processed_source = RuboCop::ProcessedSource.from_file(file, RUBY_VERSION[0..2].to_f)
+  processed_source = RuboCop::ProcessedSource.from_file(file, ENV['TM_RUBOCOP_RUBY_VERSION'].to_f)
   team = RuboCop::Cop::Team.new(
-    RuboCop::Cop::Cop.all,
+    RuboCop::Registry.new(RuboCop::Cop::Cop.all),
     RuboCop::ConfigStore.new.for(processed_source.path),
     {}
   )
@@ -40,11 +40,11 @@ end
 
 def command(messages)
   icons = {
-    refactor:   "#{ENV['TM_BUNDLE_SUPPORT']}/evil.pdf".inspect,
-    convention: "#{ENV['TM_BUNDLE_SUPPORT']}/confused.pdf".inspect,
-    warning:    "#{ENV['TM_BUNDLE_SUPPORT']}/neutral.pdf".inspect,
-    error:      "#{ENV['TM_BUNDLE_SUPPORT']}/sad.pdf".inspect,
-    fatal:      "#{ENV['TM_BUNDLE_SUPPORT']}/shocked.pdf".inspect
+    refactor:   "#{ENV['TM_BUNDLE_SUPPORT']}/evil.png".inspect,
+    convention: "#{ENV['TM_BUNDLE_SUPPORT']}/confused.png".inspect,
+    warning:    "#{ENV['TM_BUNDLE_SUPPORT']}/neutral.png".inspect,
+    error:      "#{ENV['TM_BUNDLE_SUPPORT']}/sad.png".inspect,
+    fatal:      "#{ENV['TM_BUNDLE_SUPPORT']}/shocked.png".inspect
   }
   args = []
 
@@ -58,7 +58,7 @@ def command(messages)
 
   args << ENV['TM_FILEPATH'].inspect
 
-  "#{ENV['TM_MATE']} #{args.join(' ')}"
+  "#{ENV['TM_MATE'].gsub(' ', '\ ')} #{args.join(' ')}"
 end
 
 cmd = command(messages(offences(ENV['TM_FILEPATH'])))

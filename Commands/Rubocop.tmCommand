@@ -27,7 +27,7 @@ fi
 	<key>outputLocation</key>
 	<string>discard</string>
 	<key>scope</key>
-	<string>source.ruby</string>
+	<string>source.ruby - (L:text.html.erb)</string>
 	<key>semanticClass</key>
 	<string>callback.document.did-save</string>
 	<key>uuid</key>

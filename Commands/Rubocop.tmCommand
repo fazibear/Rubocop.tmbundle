@@ -27,7 +27,7 @@ fi
 	<key>outputLocation</key>
 	<string>discard</string>
 	<key>scope</key>
-	<string>source.ruby</string>
+	<string>source.ruby - (source.ruby.embedded, source.ruby.rails.embedded, meta.embedded.line.erb, meta.embedded.block.erb, markup.raw.block.ruby)</string>
 	<key>semanticClass</key>
 	<string>callback.document.did-save</string>
 	<key>uuid</key>

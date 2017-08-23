@@ -16,7 +16,7 @@ end
 def offences(file)
   processed_source = RuboCop::ProcessedSource.from_file(file, ENV['TM_RUBOCOP_RUBY_VERSION'].to_f)
   team = RuboCop::Cop::Team.new(
-    RuboCop::Registry.new(RuboCop::Cop::Cop.all),
+    RuboCop::Cop::Registry.new(RuboCop::Cop::Cop.all),
     RuboCop::ConfigStore.new.for(processed_source.path),
     {}
   )
